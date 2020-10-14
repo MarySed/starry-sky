@@ -33,7 +33,7 @@ function App() {
       >
         <div style={{ height: "525vh" }}>
           <div className="d-flex justify-content-center align-items-center">
-            <div className="h2 align-self-center">Hello world</div>
+            <div className={"h2 align-self-center"}>Hello world</div>
           </div>
         </div>
       </div>
