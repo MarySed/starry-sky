@@ -19,7 +19,7 @@ const Scene = ({ top, mouse }) => {
       <Background
         color={top.interpolate(
           [0, scrollMax * 0.25, scrollMax * 0.8, scrollMax],
-          ["#27282F", "#247BA0", "#70C1B3", "#f8f3f1"]
+          ["#27282F", "#42434f", "#b8bac4", "#b8bac4"]
         )}
       />
       <Stars position={top.interpolate((top) => [0, -1 + top / 20, 0])} />

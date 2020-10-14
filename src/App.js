@@ -33,7 +33,7 @@ function App() {
       >
         <div style={{ height: "525vh" }}>
           <div className="d-flex justify-content-center align-items-center header">
-            <div className="header">Hello world</div>
+            <div className="h1">Hello world</div>
           </div>
         </div>
       </div>

@@ -17,7 +17,6 @@ body,
   -ms-user-select: none;
   user-select: none;
   overflow: hidden;
-  font-family: "Ultra", "serif";
 }
 
 html,
@@ -56,7 +55,6 @@ body {
 
 .header {
   height: 100vh;
-  font-size: 6rem;
-  font-weight: 400;
   color: #fff;
+  font-family: "VT323", monospace;
 }
