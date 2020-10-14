@@ -1,25 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useCallback } from "react";
+import { Canvas } from "react-three-fiber";
+import { useSpring } from "react-spring/three";
+import Scene from "./Components/Scene";
+import "./App.css";
 
 function App() {
+  const [{ top, mouse }, set] = useSpring(() => ({ top: 0, mouse: [0, 0] }));
+
+  const onMouseMove = useCallback(
+    ({ clientX: x, clientY: y }) => {
+      set({ mouse: [x - window.innerWidth / 2, y - window.innerHeight / 2] });
+    },
+    [set]
+  );
+
+  const onScroll = useCallback(
+    (e) => {
+      set({ top: e.target.scrollTop });
+    },
+    [set]
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Canvas className="canvas">
+        <Scene top={top} mouse={mouse} />
+      </Canvas>
+      <div
+        className="scroll-container"
+        onScroll={onScroll}
+        onMouseMove={onMouseMove}
+      >
+        <div style={{ height: "525vh" }}>
+          <div className="d-flex justify-content-center align-items-center">
+            <div className="h2 align-self-center">Hello world</div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
