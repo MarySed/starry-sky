@@ -21,8 +21,10 @@ const FadeIn: FunctionComponent<Props> = ({ children }) => {
       entries.forEach((entry) => setIsVisible(entry.isIntersecting));
     });
 
-    observer.observe(cardRef.current);
-    return () => observer.unobserve(cardRef.current);
+    //@ts-ignore
+    observer.observe(cardRef?.current);
+    //@ts-ignore
+    return () => observer.unobserve(cardRef?.current);
   }, []);
 
   return (
