@@ -2,6 +2,8 @@ import React, { useCallback } from "react";
 import { Canvas } from "react-three-fiber";
 import { useSpring } from "react-spring/three";
 import Scene from "./Components/Scene";
+import Card from "./Components/Card.tsx";
+import FadeIn from "./Components/FadeIn.tsx";
 import "./App.css";
 
 function App() {
@@ -32,8 +34,14 @@ function App() {
         onMouseMove={onMouseMove}
       >
         <div style={{ height: "525vh" }}>
-          <div className="d-flex justify-content-center align-items-center header">
+          <div className="header d-flex justify-content-center align-items-center">
             <div className="h1">Hello world</div>
+          </div>
+
+          <div className="first-card-container d-flex justify-content-center align-items-center">
+            <FadeIn>
+              <Card header={"Test"} body={"Test body"} />
+            </FadeIn>
           </div>
         </div>
       </div>
