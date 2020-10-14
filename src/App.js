@@ -32,8 +32,8 @@ function App() {
         onMouseMove={onMouseMove}
       >
         <div style={{ height: "525vh" }}>
-          <div className="d-flex justify-content-center align-items-center">
-            <div className={"h2 align-self-center"}>Hello world</div>
+          <div className="d-flex justify-content-center align-items-center header">
+            <div className="header">Hello world</div>
           </div>
         </div>
       </div>

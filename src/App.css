@@ -53,3 +53,10 @@ body {
   font-weight: 800;
   line-height: 0.9em;
 }
+
+.header {
+  height: 100vh;
+  font-size: 6rem;
+  font-weight: 400;
+  color: #fff;
+}
