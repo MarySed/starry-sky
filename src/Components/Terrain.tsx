@@ -4,6 +4,7 @@ import Stars from "./Stars";
 import Clouds from "./Clouds";
 import End from "./End";
 import Start from "./Start";
+import Cloud from "./Cloud";
 import Text from "./Text";
 import { isDaytime } from "../utilities/utilities";
 import { LEFT_LIMIT, RIGHT_LIMIT, GROUND_HEIGHT } from "../constants/constants";
@@ -19,7 +20,6 @@ const Terrain = () => {
       const isAfterStart = terrainRef.current.position.x < -LEFT_LIMIT;
       // Instead of moving plane & camera, make terrain move right and left when mouse is at edge of screen
       if (mouse.x > 0.7 && isBeforeEnd) {
-        console.log(isBeforeEnd);
         // Move to the right
         setTerrainPos({
           position: { x: terrainRef.current.position.x -= 1 },
@@ -27,7 +27,6 @@ const Terrain = () => {
       }
 
       if (mouse.x < -0.7 && isAfterStart) {
-        console.log(isAfterStart);
         // Move to the left
         setTerrainPos({
           position: { x: terrainRef.current.position.x += 1 },
@@ -62,6 +61,13 @@ const Terrain = () => {
       <End />
 
       <Clouds />
+      {/* <group position={[0, 0, 0]}>
+        <Cloud key="one" />
+      </group>
+
+      <group position={[10, 0, 0]}>
+        <Cloud key="two" />
+      </group> */}
 
       {/* Conditionally render stars if night */}
       {!isDaytime && <Stars position={[0, 0, -2]} />}
