@@ -27,7 +27,9 @@ const CameraControls = () => {
     <orbitControls
       ref={controls}
       args={[camera, domElement]}
+      // Zoom and rotate disabled for better 2.5D movement/control esp. on phones
       enableZoom={false}
+      enableRotate={false}
       maxAzimuthAngle={Math.PI / 4}
       maxPolarAngle={Math.PI}
       minAzimuthAngle={-Math.PI / 4}

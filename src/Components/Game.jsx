@@ -13,25 +13,36 @@ extend({ OrbitControls });
 
 const Game = () => {
   return (
-    <Canvas
-      className={classNames({
-        [styles.day]: isDaytime,
-        [styles.night]: !isDaytime,
-      })}
-      shadowMap
-    >
-      <CameraControls />
+    <>
+      <Canvas
+        className={classNames({
+          [styles.day]: isDaytime,
+          [styles.night]: !isDaytime,
+        })}
+        shadowMap
+      >
+        <CameraControls />
 
-      <directionalLight intensity={0.5} />
-      <ambientLight color="#d8d0d1" />
-      {/* TODO: Consider if fog is worth using or not, and where to use */}
-      {/* <fog attach="fog" args={["#cc7b32", 300, 350]} /> */}
+        <directionalLight intensity={0.5} />
+        <ambientLight color="#d8d0d1" />
+        {/* TODO: Consider if fog is worth using or not, and where to use */}
+        {/* <fog attach="fog" args={["#cc7b32", 300, 350]} /> */}
 
-      <Suspense fallback={<Loading />}>
-        <Character />
-      </Suspense>
-      <Terrain />
-    </Canvas>
+        <Suspense fallback={<Loading />}>
+          <Character />
+        </Suspense>
+        <Terrain />
+      </Canvas>
+
+      <div className={styles["move-forward"]}>
+        {/* <span className={styles["move-message"]}>Move forward</span> */}
+        <span className={styles.indicator}>{">"}</span>
+      </div>
+
+      <div className={styles["move-backward"]}>
+        <span className={styles.indicator}>{"<"}</span>
+      </div>
+    </>
   );
 };
 

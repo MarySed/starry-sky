@@ -14,6 +14,56 @@
   background: radial-gradient(ellipse at center, #0541a6, #02082d);
 }
 
+.move-forward {
+  position: absolute;
+  top: 50vh;
+  right: 5vw;
+  color: #fff;
+  z-index: 999;
+}
+
+.move-backward {
+  position: absolute;
+  top: 50vh;
+  left: 5vw;
+  color: #fff;
+  z-index: 999;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.35;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.indicator {
+  animation-name: blink;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  font-size: 30px;
+}
+
+@media screen and (max-width: 760px) {
+  .move-forward {
+    right: 0;
+  }
+
+  .move-backward {
+    left: 0;
+  }
+}
 // Cute color palette to maybe use
 //   red: f25346,
 //   white: d8d0d1,
