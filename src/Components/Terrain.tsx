@@ -1,4 +1,4 @@
-import React, { useRef, useState, Ref } from "react";
+import React, { useRef, useState, Ref, Suspense } from "react";
 import { useFrame } from "react-three-fiber";
 import Stars from "./Stars";
 import Clouds from "./Clouds";
@@ -44,7 +44,7 @@ const Terrain = () => {
 
   return (
     <group ref={terrainRef} dispose={null}>
-      {/* <Start /> */}
+      {/* TODO: Turn this into like...an environment.  */}
       <mesh visible position={[0, GROUND_HEIGHT, 0]}>
         <boxBufferGeometry attach="geometry" args={[1, 1]} />
         <meshStandardMaterial
@@ -54,20 +54,19 @@ const Terrain = () => {
           metalness={0.1}
         />
       </mesh>
-      <Text position={[LEFT_LIMIT, 0, 0]} opacity={1} fontSize={70}>
+      {/* Sprite text implmentation */}
+      {/* <Text position={[LEFT_LIMIT, 0, 0]} opacity={1} fontSize={70}>
         MARY SEDAROUS
-      </Text>
+      </Text> */}
+
+      <Suspense fallback={null}>
+        <Text children="MARY" size={0.1} position={[-10, 0, -6]} />
+        <Text children="SEDAROUS" size={0.1} position={[-10, -1.2, -6]} />
+      </Suspense>
 
       <End />
 
       <Clouds />
-      {/* <group position={[0, 0, 0]}>
-        <Cloud key="one" />
-      </group>
-
-      <group position={[10, 0, 0]}>
-        <Cloud key="two" />
-      </group> */}
 
       {/* Conditionally render stars if night */}
       {!isDaytime && <Stars position={[0, 0, -2]} />}
