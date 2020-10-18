@@ -4,7 +4,8 @@ import { useFrame } from "react-three-fiber";
 const Cloud = (posX) => {
   const cloudRef = useRef();
 
-  useFrame((state) => {
+  useFrame(() => {
+    // Clouds should drift across the screen
     cloudRef.current.position.x -= 0.02;
   });
 

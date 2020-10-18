@@ -26,9 +26,9 @@ const Game = () => {
           <CameraControls />
 
           <directionalLight intensity={0.5} />
-          <ambientLight color="#d8d0d1" />
+          <ambientLight color="#d8d0d1" intensity={0.8} />
           {/* TODO: Consider if fog is worth using or not, and where to use */}
-          {/* <fog attach="fog" args={["#cc7b32", 300, 350]} /> */}
+          {/* <fog attach="fog" args={["#cc7b32", 1, 20]} /> */}
 
           <Suspense fallback={<Loading />}>
             <Character />
