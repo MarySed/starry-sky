@@ -9,7 +9,7 @@ const Cloud = (posX) => {
   });
 
   return (
-    <group ref={cloudRef}>
+    <group ref={cloudRef} dispose={null}>
       <mesh visible position={[-1, 3.8, -3]} rotation={[0, 0, 0]} castShadow>
         <sphereGeometry attach="geometry" args={[0.8, 16, 16]} />
         <meshStandardMaterial

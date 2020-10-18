@@ -1,5 +1,6 @@
 import React, { useRef, useState, Ref } from "react";
 import { useFrame } from "react-three-fiber";
+import * as THREE from "three/src/Three";
 import Stars from "./Stars";
 import Clouds from "./Clouds";
 import { isDaytime } from "../utilities/utilities";
@@ -37,7 +38,7 @@ const Terrain = () => {
   });
 
   return (
-    <group ref={terrainRef}>
+    <group ref={terrainRef} dispose={null}>
       <mesh
         visible
         position={[0, GROUND_HEIGHT, 0]}

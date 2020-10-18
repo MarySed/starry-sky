@@ -40,7 +40,7 @@ const Character = () => {
   });
 
   return (
-    <group ref={user}>
+    <group ref={user} dispose={null}>
       <mesh
         visible
         geometry={nodes["Airplane_1"].geometry}

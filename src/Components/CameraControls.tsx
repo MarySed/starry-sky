@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { Suspense, useRef } from "react";
 import {
   Canvas,
@@ -23,7 +24,6 @@ const CameraControls = () => {
   });
 
   return (
-    //@ts-ignore
     <orbitControls
       ref={controls}
       args={[camera, domElement]}
