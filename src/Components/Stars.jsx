@@ -7,6 +7,7 @@ import { a } from "react-spring/three";
 const Stars = ({ position }) => {
   let group = useRef(null);
   let theta = 0;
+
   useFrame(() => {
     const r = 5 * Math.sin(THREE.Math.degToRad((theta += 0.01)));
     const s = Math.cos(THREE.Math.degToRad(theta * 2));
@@ -14,13 +15,16 @@ const Stars = ({ position }) => {
     group.current.scale.set(s, s, s);
   });
 
+  // TODO: Refactor this into React-Three-Fiber style code
   const [geo, mat, coords] = useMemo(() => {
     const geo = new THREE.SphereBufferGeometry(1, 10, 10);
     const mat = new THREE.MeshBasicMaterial({
-      color: new THREE.Color("peachpuff"),
+      // color: new THREE.Color("peachpuff"),
+      color: "yellow", // TODO: Investigate color options and combos
       transparent: true,
     });
 
+    // TODO: Edit this for z coords
     const coords = new Array(1000)
       .fill()
       .map((i) => [
