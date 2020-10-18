@@ -11,7 +11,7 @@ const Clouds = () => {
     <>
       {cloudsArr.map((cloud) => (
         <group position={[cloud.x, cloud.y, cloud.z]} key={`${cloud.x}`}>
-          <Cloud />
+          <Cloud key={`${cloud.x}`} />
         </group>
       ))}
     </>
