@@ -4,6 +4,7 @@ import Stars from "./Stars";
 import Clouds from "./Clouds";
 import End from "./End";
 import Start from "./Start";
+import Text from "./Text";
 import { isDaytime } from "../utilities/utilities";
 import { LEFT_LIMIT, RIGHT_LIMIT, GROUND_HEIGHT } from "../constants/constants";
 
@@ -54,6 +55,10 @@ const Terrain = () => {
           metalness={0.1}
         />
       </mesh>
+      <Text position={[LEFT_LIMIT, 0, 0]} opacity={1} fontSize={70}>
+        MARY SEDAROUS
+      </Text>
+
       <End />
 
       <Clouds />
