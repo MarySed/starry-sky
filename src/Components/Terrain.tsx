@@ -1,17 +1,22 @@
 import React, { useRef, useState, Ref, Suspense } from "react";
-import { useFrame } from "react-three-fiber";
+import { useFrame, useThree } from "react-three-fiber";
 import Stars from "./Stars";
 import Clouds from "./Clouds";
 import End from "./End";
 import Start from "./Start";
-import Cloud from "./Cloud";
 import Text from "./Text";
 import { isDaytime } from "../utilities/utilities";
 import { LEFT_LIMIT, RIGHT_LIMIT, GROUND_HEIGHT } from "../constants/constants";
 
+// This should probably be renamed...
 const Terrain = () => {
   const [terrainPos, setTerrainPos] = useState<any>({ position: { x: 0 } });
   const terrainRef: Ref<any> = useRef();
+
+  const { size } = useThree();
+
+  // Detect screen size
+  const isMobile = size.width < 700;
 
   useFrame(({ mouse }) => {
     if (terrainRef !== undefined) {
@@ -55,13 +60,32 @@ const Terrain = () => {
         />
       </mesh> */}
       {/* Sprite text implmentation */}
-      {/* <Text position={[LEFT_LIMIT, 0, 0]} opacity={1} fontSize={70}>
-        MARY SEDAROUS
-      </Text> */}
 
       <Suspense fallback={null}>
-        <Text children="MARY" size={0.1} position={[-7, 0, -6]} />
-        <Text children="SEDAROUS" size={0.1} position={[-7, -1.2, -6]} />
+        <Text
+          children="MARY"
+          size={0.1}
+          position={[-7, 0, -6]}
+          scale={isMobile ? [0.2, 0.2, 0.02] : [0.8, 0.8, 0.02]}
+        />
+        <Text
+          children="SEDAROUS"
+          size={0.1}
+          position={[-7, -1.2, -6]}
+          scale={isMobile ? [0.2, 0.2, 0.02] : [0.8, 0.8, 0.02]}
+        />
+        <Text
+          children="THE"
+          position={[LEFT_LIMIT - 25, -4, 6]}
+          rotation={[0, 0, Math.PI / 2]}
+          scale={isMobile ? [0.2, 0.2, 0.02] : [0.4, 0.4, 0.02]}
+        />
+        <Text
+          children="BEGINNING"
+          position={[LEFT_LIMIT - 25, -0.5, 6]}
+          rotation={[0, 0, Math.PI / 2]}
+          scale={isMobile ? [0.2, 0.2, 0.02] : [0.4, 0.4, 0.02]}
+        />
       </Suspense>
 
       <End />
