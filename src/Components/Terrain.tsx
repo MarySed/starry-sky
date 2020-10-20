@@ -45,7 +45,7 @@ const Terrain = () => {
   return (
     <group ref={terrainRef} dispose={null}>
       {/* TODO: Turn this into like...an environment.  */}
-      <mesh visible position={[0, GROUND_HEIGHT, 0]}>
+      {/* <mesh visible position={[0, GROUND_HEIGHT, 0]}>
         <boxBufferGeometry attach="geometry" args={[1, 1]} />
         <meshStandardMaterial
           attach="material"
@@ -53,15 +53,15 @@ const Terrain = () => {
           roughness={1}
           metalness={0.1}
         />
-      </mesh>
+      </mesh> */}
       {/* Sprite text implmentation */}
       {/* <Text position={[LEFT_LIMIT, 0, 0]} opacity={1} fontSize={70}>
         MARY SEDAROUS
       </Text> */}
 
       <Suspense fallback={null}>
-        <Text children="MARY" size={0.1} position={[-10, 0, -6]} />
-        <Text children="SEDAROUS" size={0.1} position={[-10, -1.2, -6]} />
+        <Text children="MARY" size={0.1} position={[-7, 0, -6]} />
+        <Text children="SEDAROUS" size={0.1} position={[-7, -1.2, -6]} />
       </Suspense>
 
       <End />

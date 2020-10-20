@@ -9,12 +9,10 @@ const Character = () => {
   const { nodes }: any = useLoader(GLTFLoader, "/models/paper-plane.glb");
 
   const user: Ref<any> = useRef();
+
   // useFrame runs outside of react in optimized animation frames
-  // Update this to take keyboard input instead
   useFrame(({ mouse }) => {
     if (user !== undefined) {
-      // return (group.current.rotation.y += 0.004);
-
       const flipPlane = () => {
         // Make plane face left
         if (mouse.x < -0.5) {
@@ -46,6 +44,7 @@ const Character = () => {
         geometry={nodes["Airplane_1"].geometry}
         // display model at 90 degree angle to screen for 2.5D experience
         rotation={[0, Math.PI / 2, 0]}
+        scale={[0.7, 0.7, 0.7]}
       >
         <meshStandardMaterial
           attach="material"

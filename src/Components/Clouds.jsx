@@ -20,7 +20,7 @@ const Clouds = () => {
         return (cloud.current.position.x = RIGHT_LIMIT + 4);
       }
       // Clouds should drift across the screen
-      cloud.current.position.x -= 0.1;
+      cloud.current.position.x -= 0.01;
     });
   });
 
