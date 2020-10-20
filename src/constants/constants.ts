@@ -1,4 +1,4 @@
-export const GROUND_HEIGHT = -3;
+export const GROUND_HEIGHT = -3.7;
 
 // Boundaries
 export const LEFT_LIMIT = -5;

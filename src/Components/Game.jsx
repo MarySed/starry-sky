@@ -1,7 +1,6 @@
 import React, { Suspense } from "react";
 import classNames from "classnames";
 import { Canvas, extend } from "react-three-fiber";
-import * as THREE from "three/src/Three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Character from "./Character.tsx";
 import Loading from "./Loading.tsx";

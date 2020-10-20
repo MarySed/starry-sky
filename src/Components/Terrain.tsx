@@ -4,6 +4,7 @@ import Stars from "./Stars";
 import Clouds from "./Clouds";
 import End from "./End";
 import Start from "./Start";
+import Forest from "./Forest";
 import Text from "./Text";
 import { isDaytime } from "../utilities/utilities";
 import { LEFT_LIMIT, RIGHT_LIMIT, GROUND_HEIGHT } from "../constants/constants";
@@ -44,22 +45,14 @@ const Terrain = () => {
     if (terrainRef !== undefined) {
       terrainRef.current.position.x = terrainPos.position.x;
     }
-    return null;
   });
 
   return (
     <group ref={terrainRef} dispose={null}>
       {/* TODO: Turn this into like...an environment.  */}
-      {/* <mesh visible position={[0, GROUND_HEIGHT, 0]}>
-        <boxBufferGeometry attach="geometry" args={[1, 1]} />
-        <meshStandardMaterial
-          attach="material"
-          color="white"
-          roughness={1}
-          metalness={0.1}
-        />
-      </mesh> */}
-      {/* Sprite text implmentation */}
+      <Suspense fallback={null}>
+        <Forest />
+      </Suspense>
 
       <Suspense fallback={null}>
         <Text
