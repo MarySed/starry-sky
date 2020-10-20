@@ -1,17 +1,15 @@
 .day {
   background: rgb(34, 193, 195);
-  background: linear-gradient(
-    0deg,
-    rgba(34, 193, 195, 1) 0%,
-    rgba(253, 187, 45, 1) 100%
-  );
+  // background: linear-gradient(
+  //   0deg,
+  //   rgba(34, 193, 195, 1) 0%,
+  //   rgba(253, 187, 45, 1) 100%
+  // );
+  background: linear-gradient(0deg, #c2c3be 0%, #e4e3de 100%);
 }
 
 .night {
-  background: #1c1b1f; // I might prefer this color..
-  // background: -webkit-radial-gradient(center, #23244a, #020519);
-  // background: -moz-radial-gradient(center, #23244a, #020519);
-  // background: radial-gradient(ellipse at center, #23244a, #020519);
+  background: #1c1b1f;
 }
 
 .move-forward {
