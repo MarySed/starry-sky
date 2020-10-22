@@ -14,7 +14,7 @@ const Cow = () => {
         setDirection(false);
       }
 
-      if (cowRef.current.position.y < -1.5) {
+      if (cowRef.current.position.y < -1.2) {
         setDirection(true);
       }
 

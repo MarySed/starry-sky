@@ -11,9 +11,9 @@ import { GROUND_HEIGHT, LEFT_LIMIT, RIGHT_LIMIT } from "../constants/constants";
 import Ufo from "./Ufo";
 
 // This should probably be renamed...
-const Terrain = () => {
-  const [terrainPos, setTerrainPos] = useState<any>({ position: { x: 0 } });
-  const terrainRef: Ref<any> = useRef();
+const Terrain = ({ terrainPos, setTerrainPos }) => {
+  // const [terrainPos, setTerrainPos] = useState<any>({ position: { x: 0 } });
+  const terrainRef = useRef();
 
   const { size } = useThree();
 
@@ -33,21 +33,21 @@ const Terrain = () => {
       if (canMoveRight && isBeforeEnd) {
         // Move to the right
         setTerrainPos({
-          position: { x: terrainRef.current.position.x -= 1 },
+          position: { x: (terrainRef.current.position.x -= 1) },
         });
       }
 
       if (canMoveLeft && isAfterStart) {
         // Move to the left
         setTerrainPos({
-          position: { x: terrainRef.current.position.x += 1 },
+          position: { x: (terrainRef.current.position.x += 1) },
         });
       }
     }
   });
 
   useFrame(() => {
-    if (terrainRef !== undefined) {
+    if (terrainRef && terrainPos) {
       terrainRef.current.position.x = terrainPos.position.x;
     }
   });
@@ -72,60 +72,11 @@ const Terrain = () => {
           position={[-7, -1.2, -6]}
           scale={isMobile ? [0.2, 0.2, 0.02] : [0.8, 0.8, 0.02]}
         />
-        <Text
-          children="THE"
-          position={[LEFT_LIMIT - 25, -4, 6]}
-          rotation={[0, 0, Math.PI / 2]}
-          scale={isMobile ? [0.2, 0.2, 0.02] : [0.4, 0.4, 0.02]}
-        />
-        <Text
-          children="BEGINNING"
-          position={[LEFT_LIMIT - 25, -0.5, 6]}
-          rotation={[0, 0, Math.PI / 2]}
-          scale={isMobile ? [0.2, 0.2, 0.02] : [0.4, 0.4, 0.02]}
-        />
       </Suspense>
 
       <Suspense fallback={null}>
         <Ufo />
       </Suspense>
-
-      {/* <mesh
-        visible
-        position={[20, GROUND_HEIGHT + 5, -3]}
-        rotation={[0, 0, -0.4]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <cylinderBufferGeometry attach="geometry" args={[2, 4]} />
-        <meshLambertMaterial attach="material" color="white" />
-      </mesh>
-
-      <mesh
-        visible
-        position={[20, GROUND_HEIGHT + 5, -3]}
-        rotation={[0, 0, -0.4]}
-      >
-        <sphereBufferGeometry
-          attach="geometry"
-          args={[1, 16, 16, 0, 6.3, 0, 1.8]}
-        />
-        <meshStandardMaterial attach="material" color="white" />
-      </mesh>
-
-      <mesh
-        visible
-        position={[17.9, GROUND_HEIGHT, -3]}
-        rotation={[0, 0, -0.4]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <cylinderBufferGeometry attach="geometry" args={[1.5, 4, 21]} />
-        <meshLambertMaterial
-          attach="material"
-          color="green"
-          transparent
-          opacity={0.6}
-        />
-      </mesh> */}
 
       <End />
 

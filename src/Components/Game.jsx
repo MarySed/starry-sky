@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import classNames from "classnames";
 import { Canvas, extend } from "react-three-fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
@@ -8,10 +8,15 @@ import CameraControls from "./CameraControls.tsx";
 import Terrain from "./Terrain";
 import { isDaytime } from "../utilities/utilities";
 import styles from "./Game.module.scss";
+import { LEFT_LIMIT, RIGHT_LIMIT } from "../constants/constants";
 
 extend({ OrbitControls });
 
 const Game = () => {
+  const [terrainPos, setTerrainPos] = useState({ position: { x: 0 } });
+
+  console.log(terrainPos);
+
   return (
     <>
       <Suspense fallback={null}>
@@ -32,16 +37,20 @@ const Game = () => {
           <Suspense fallback={<Loading />}>
             <Character />
           </Suspense>
-          <Terrain />
+          <Terrain terrainPos={terrainPos} setTerrainPos={setTerrainPos} />
         </Canvas>
       </Suspense>
 
       <div className={styles["move-forward"]}>
-        <span className={styles.indicator}>{">"}</span>
+        <span className={styles.indicator}>
+          {terrainPos.position.x !== -RIGHT_LIMIT ? ">" : ""}
+        </span>
       </div>
 
       <div className={styles["move-backward"]}>
-        <span className={styles.indicator}>{"<"}</span>
+        <span className={styles.indicator}>
+          {terrainPos.position.x !== -LEFT_LIMIT ? "<" : ""}
+        </span>
       </div>
     </>
   );
