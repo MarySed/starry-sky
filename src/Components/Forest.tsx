@@ -1,6 +1,5 @@
 import React from "react";
-import { Vector3 } from "three";
-import { LEFT_LIMIT, RIGHT_LIMIT, GROUND_HEIGHT } from "../constants/constants";
+import { GROUND_HEIGHT } from "../constants/constants";
 
 type Props = {
   position: any; // Can't use number[] due to clash between position types
@@ -23,9 +22,11 @@ const Tree = ({ position }: Props) => {
 const Forest = () => {
   return (
     <>
+      <Tree position={[4, GROUND_HEIGHT, 0]} />
       <Tree position={[0, GROUND_HEIGHT, 0]} />
       <Tree position={[-4, GROUND_HEIGHT, 0]} />
-      <Tree position={[4, GROUND_HEIGHT, 0]} />
+      <Tree position={[-8, GROUND_HEIGHT, 0]} />
+      <Tree position={[-12, GROUND_HEIGHT, 0]} />
     </>
   );
 };
