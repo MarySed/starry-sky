@@ -3,18 +3,25 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useFrame, useLoader } from "react-three-fiber";
 
 const Cow = () => {
+  const [direction, setDirection] = useState(true);
   const { nodes } = useLoader(GLTFLoader, "/models/cow.glb");
 
   const cowRef = useRef(null);
 
-  //   useFrame(({ mouse }) => {
-  //     if (cowRef !== null) {
-  //       setCowPos({
-  //         position: { x: mouse.x * 6, y: mouse.y * 2 },
-  //         rotation: { z: -mouse.x * 0.2, x: -mouse.x * 0.5, y: mouse.y * 2 },
-  //       });
-  //     }
-  //   });
+  useFrame(() => {
+    if (cowRef !== null) {
+      if (cowRef.current.position.y > 0) {
+        setDirection(false);
+      }
+
+      if (cowRef.current.position.y < -1.5) {
+        setDirection(true);
+      }
+
+      const increment = direction ? 0.01 : -0.01;
+      cowRef.current.position.y += increment;
+    }
+  });
 
   return (
     <group ref={cowRef} dispose={null}>
