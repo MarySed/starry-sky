@@ -86,7 +86,9 @@ const Terrain = () => {
         />
       </Suspense>
 
-      <Ufo />
+      <Suspense fallback={null}>
+        <Ufo />
+      </Suspense>
 
       {/* <mesh
         visible

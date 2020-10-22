@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Suspense } from "react";
+import Cow from "./Cow";
 import { GROUND_HEIGHT } from "../constants/constants";
 
 const Ufo = () => {
@@ -41,6 +42,10 @@ const Ufo = () => {
           opacity={0.4}
         />
       </mesh>
+
+      <Suspense fallback={null}>
+        <Cow />
+      </Suspense>
     </group>
   );
 };
