@@ -12,7 +12,7 @@ const Tree = ({ position }: Props) => {
       <coneBufferGeometry attach="geometry" args={[1, 2, 8]} />
       <meshStandardMaterial
         attach="material"
-        color="#122b0d"
+        color="#63683e"
         roughness={1}
         metalness={0.1}
       />
