@@ -6,6 +6,7 @@ import End from "./End";
 import Start from "./Start";
 import Forest from "./Forest";
 import Text from "./Text";
+import Computer from "./Computer";
 import { isDaytime } from "../utilities/utilities";
 import { GROUND_HEIGHT, LEFT_LIMIT, RIGHT_LIMIT } from "../constants/constants";
 import Ufo from "./Ufo";
@@ -76,6 +77,10 @@ const Terrain = ({ terrainPos, setTerrainPos }) => {
 
       <Suspense fallback={null}>
         <Ufo />
+      </Suspense>
+
+      <Suspense fallback={null}>
+        <Computer />
       </Suspense>
 
       <End />
