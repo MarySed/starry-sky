@@ -15,8 +15,6 @@ extend({ OrbitControls });
 const Game = () => {
   const [terrainPos, setTerrainPos] = useState({ position: { x: 0 } });
 
-  console.log(terrainPos);
-
   return (
     <>
       <Suspense fallback={null}>

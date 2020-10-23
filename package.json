@@ -5,15 +5,12 @@
   "dependencies": {
     "@react-spring/core": "^9.0.0-rc.3",
     "@react-spring/three": "^9.0.0-rc.3",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^26.0.14",
     "@types/node": "^14.11.8",
     "@types/react": "^16.9.51",
     "@types/react-dom": "^16.9.8",
     "bootstrap": "^4.5.2",
     "classnames": "^2.2.6",
+    "drei": "^1.5.7",
     "express": "^4.17.1",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
@@ -45,5 +42,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15"
   }
 }

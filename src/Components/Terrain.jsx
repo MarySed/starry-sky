@@ -3,13 +3,12 @@ import { useFrame, useThree } from "react-three-fiber";
 import Stars from "./Stars";
 import Clouds from "./Clouds";
 import End from "./End";
-import Start from "./Start";
 import Forest from "./Forest";
 import Text from "./Text";
 import Computer from "./Computer";
+import Ufo from "./Ufo";
 import { isDaytime } from "../utilities/utilities";
 import { GROUND_HEIGHT, LEFT_LIMIT, RIGHT_LIMIT } from "../constants/constants";
-import Ufo from "./Ufo";
 
 // This should probably be renamed...
 const Terrain = ({ terrainPos, setTerrainPos }) => {
@@ -80,7 +79,7 @@ const Terrain = ({ terrainPos, setTerrainPos }) => {
       </Suspense>
 
       <Suspense fallback={null}>
-        <Computer />
+        <Computer terrainPos={terrainPos} />
       </Suspense>
 
       <End />

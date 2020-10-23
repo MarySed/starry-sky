@@ -3,6 +3,7 @@ import { useFrame } from "react-three-fiber";
 import Cloud from "./Cloud";
 import { LEFT_LIMIT, RIGHT_LIMIT } from "../constants/constants";
 
+// TODO: Randomly generate clouds between certain points rather than tailored coords
 const cloudsArr = [
   { x: 7, y: -0.7, z: 0, name: "one" },
   { x: 18, y: -1.5, z: 0, name: "two" },
@@ -15,7 +16,7 @@ const Clouds = () => {
 
   useFrame(() => {
     cloudsRef.current.map((cloud) => {
-      if (cloud.current.position.x <= LEFT_LIMIT - 4) {
+      if (cloud.current.position.x <= LEFT_LIMIT - 8) {
         // Loop clouds
         return (cloud.current.position.x = RIGHT_LIMIT + 4);
       }
