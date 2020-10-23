@@ -1,7 +1,6 @@
 import React, { useRef, useState, Ref, Suspense } from "react";
 import { useFrame, useThree } from "react-three-fiber";
 import { Html } from "drei";
-import { isDaytime } from "../utilities/utilities";
 import { LEFT_LIMIT, RIGHT_LIMIT } from "../constants/constants";
 import Stars from "./Stars";
 import Clouds from "./Clouds";
@@ -11,7 +10,7 @@ import Text from "./Text";
 import Computer from "./Computer";
 import Ufo from "./Ufo";
 
-const Terrain = ({ terrainPos, setTerrainPos }) => {
+const Terrain = ({ terrainPos, setTerrainPos, isDay }) => {
   const terrainRef = useRef();
 
   const { size } = useThree();
@@ -102,7 +101,7 @@ const Terrain = ({ terrainPos, setTerrainPos }) => {
       {/* TODO: Add some html text toward the end of the terrain maybe */}
 
       {/* Conditionally render stars if night */}
-      {!isDaytime && <Stars position={[0, 0, -2]} />}
+      {!isDay && <Stars position={[0, 0, -2]} />}
     </group>
   );
 };

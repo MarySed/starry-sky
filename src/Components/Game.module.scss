@@ -5,11 +5,21 @@
   //   rgba(34, 193, 195, 1) 0%,
   //   rgba(253, 187, 45, 1) 100%
   // );
-  background: linear-gradient(0deg, #c2c3be 0%, #e4e3de 100%);
+  // background: linear-gradient(0deg, #c2c3be 0%, #e4e3de 100%);
+  background: linear-gradient(0deg, #cc7b32 0%, #00bfff 100%);
 }
 
 .night {
   background: #1c1b1f;
+}
+
+.day-night {
+  position: absolute;
+  bottom: 5vh;
+  left: 5vw;
+  color: #fff;
+  z-index: 999;
+  cursor: pointer;
 }
 
 .move-forward {
@@ -18,7 +28,7 @@
   right: 5vw;
   color: #fff;
   z-index: 999;
-  cursor: pointer;
+  cursor: default;
 }
 
 .move-backward {
