@@ -1,5 +1,8 @@
 import React, { useRef, useState, Ref, Suspense } from "react";
 import { useFrame, useThree } from "react-three-fiber";
+import { Html } from "drei";
+import { isDaytime } from "../utilities/utilities";
+import { LEFT_LIMIT, RIGHT_LIMIT } from "../constants/constants";
 import Stars from "./Stars";
 import Clouds from "./Clouds";
 import End from "./End";
@@ -7,12 +10,8 @@ import Forest from "./Forest";
 import Text from "./Text";
 import Computer from "./Computer";
 import Ufo from "./Ufo";
-import { isDaytime } from "../utilities/utilities";
-import { GROUND_HEIGHT, LEFT_LIMIT, RIGHT_LIMIT } from "../constants/constants";
 
-// This should probably be renamed...
 const Terrain = ({ terrainPos, setTerrainPos }) => {
-  // const [terrainPos, setTerrainPos] = useState<any>({ position: { x: 0 } });
   const terrainRef = useRef();
 
   const { size } = useThree();
@@ -22,14 +21,14 @@ const Terrain = ({ terrainPos, setTerrainPos }) => {
 
   useFrame(({ mouse }) => {
     if (terrainRef !== undefined) {
-      // Define limits on environment (TODO: Abstract up so move indicators conditionally render)
+      // Define limits on environment
       const isBeforeEnd = terrainRef.current.position.x > -RIGHT_LIMIT;
       const isAfterStart = terrainRef.current.position.x < -LEFT_LIMIT;
       const canMoveRight = mouse.x > 0.8 && mouse.y < -0.01 && mouse.y > -0.2;
       const canMoveLeft =
         mouse.x < -0.8 && mouse.y < -0.01 && mouse.y > -0.2 && isAfterStart;
 
-      // Instead of moving plane & camera, make terrain move right and left when mouse is at edge of screen
+      // Instead of moving airplane & camera, make terrain move right and left when mouse is at edge of screen
       if (canMoveRight && isBeforeEnd) {
         // Move to the right
         setTerrainPos({
@@ -54,7 +53,6 @@ const Terrain = ({ terrainPos, setTerrainPos }) => {
 
   return (
     <group ref={terrainRef} dispose={null}>
-      {/* TODO: Turn this into like...an environment.  */}
       <Suspense fallback={null}>
         <Forest />
       </Suspense>
@@ -72,6 +70,21 @@ const Terrain = ({ terrainPos, setTerrainPos }) => {
           position={[-7, -1.2, -6]}
           scale={isMobile ? [0.2, 0.2, 0.02] : [0.8, 0.8, 0.02]}
         />
+
+        {/* TODO: Can't decide if I want this here or elsewhere... */}
+        {/* <Text
+          children="FRONTEND"
+          size={0.1}
+          position={[-18.5, -5, -6]}
+          scale={isMobile ? [0.2, 0.2, 0.02] : [0.3, 0.3, 0.02]}
+        />
+
+        <Text
+          children="ENGINEER"
+          size={0.1}
+          position={[-10.5, -5, -6]}
+          scale={isMobile ? [0.2, 0.2, 0.02] : [0.3, 0.3, 0.02]}
+        /> */}
       </Suspense>
 
       <Suspense fallback={null}>
@@ -79,12 +92,14 @@ const Terrain = ({ terrainPos, setTerrainPos }) => {
       </Suspense>
 
       <Suspense fallback={null}>
-        <Computer terrainPos={terrainPos} />
+        <Computer />
       </Suspense>
 
       <End />
 
       <Clouds />
+
+      {/* TODO: Add some html text toward the end of the terrain maybe */}
 
       {/* Conditionally render stars if night */}
       {!isDaytime && <Stars position={[0, 0, -2]} />}

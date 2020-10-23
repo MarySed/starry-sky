@@ -5,7 +5,7 @@ import { GROUND_HEIGHT } from "../constants/constants";
 import { Html } from "drei";
 import styles from "./Computer.module.scss";
 
-const Computer = ({ terrainPos }) => {
+const Computer = () => {
   const { nodes } = useLoader(GLTFLoader, "/models/computer-1.glb");
 
   const computerRef = useRef(null);
@@ -26,7 +26,8 @@ const Computer = ({ terrainPos }) => {
           metalness={0.3}
         />
       </mesh>
-      {/* Display div overlaid over computer. Potentially this can be moved but for now I'll leave it here. */}
+      {/* Overlay div on computer. Potentially this can be moved but for now I'll leave it here. */}
+      {/* TODO: Add interactivity */}
       <Html scale={100} position={[41, 1.7, -2]}>
         <div
           className={styles.content}
