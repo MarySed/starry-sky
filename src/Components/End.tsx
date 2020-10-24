@@ -1,5 +1,5 @@
 import React from "react";
-import { RIGHT_LIMIT, GROUND_HEIGHT } from "../constants/constants";
+import { RIGHT_LIMIT } from "../constants/constants";
 
 const End = () => {
   return (

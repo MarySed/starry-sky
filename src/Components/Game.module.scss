@@ -20,6 +20,12 @@
   color: #fff;
   z-index: 999;
   cursor: pointer;
+  transition: ease-out opacity 0.5s;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .move-forward {

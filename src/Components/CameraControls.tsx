@@ -1,12 +1,6 @@
 //@ts-nocheck
-import React, { Suspense, useRef } from "react";
-import {
-  Canvas,
-  useLoader,
-  useFrame,
-  extend,
-  useThree,
-} from "react-three-fiber";
+import React, { useRef } from "react";
+import { useFrame, extend, useThree } from "react-three-fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 extend({ OrbitControls });
@@ -19,7 +13,7 @@ const CameraControls = () => {
 
   const controls = useRef<OrbitControls>();
 
-  useFrame((state) => {
+  useFrame(() => {
     controls.current?.update();
   });
 

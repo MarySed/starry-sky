@@ -1,8 +1,6 @@
-import React, { Suspense } from "react";
-import * as THREE from "three/src/Three";
-import { Canvas, useLoader } from "react-three-fiber";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import React from "react";
 
+// TODO: Replace this with an actual loading indicator
 const Loading = () => {
   return (
     <mesh visible position={[0, 0, 0]} rotation={[0, 0, 0]} dispose={null}>

@@ -1,4 +1,4 @@
-import React, { useRef, useState, Ref, Suspense } from "react";
+import React, { useRef, Suspense } from "react";
 import { useFrame, useThree } from "react-three-fiber";
 import { Html } from "drei";
 import { LEFT_LIMIT, RIGHT_LIMIT } from "../constants/constants";
